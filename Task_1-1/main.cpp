@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #define USE_MATH_DEFINER
+#include <cmath>
 using namespace std;
 
 double GetA(const double x, const double y, const double z) {
@@ -17,10 +17,10 @@ int main() {
 	const double z = 0.7;
 	const auto a = -GetA(x, y, z);
 	const auto b = GetB(x, y, z);
-	cout << "x = " << x << endl
-		<< "y = " << y << endl
-		<< "z = " << z << endl
-		<< "a = " << a << endl
-		<< "b = " << b << endl;
+	cout<< "x = " << x 
+		<< "\ny = " << y 
+		<< "\nz = " << z 
+		<< "\na = " << a 
+		<< "\nb = " << b;
 	return 0;
 }
