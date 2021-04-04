@@ -1,5 +1,5 @@
 #include <iostream>
-#define USE_MATH_DEFINER
+#define _USE_MATH_DEFINES
 #include <cmath>
 using namespace std;
 
