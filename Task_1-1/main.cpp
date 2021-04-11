@@ -4,26 +4,26 @@
 using namespace std;
 
 /**
-* \brief Метод, считающий const a
+* \brief РњРµС‚РѕРґ, СЃС‡РёС‚Р°СЋС‰РёР№ const a
 * \param const x, y, z
-* \return значение const a
+* \return Р·РЅР°С‡РµРЅРёРµ const a
 **/
 double GetA(const double x, const double y, const double z) {
 	return cbrt((x * y * z) + abs(z * sin(y))) ;
 }
 
 /**
-* \brief Метод, считающий const b
+* \brief РњРµС‚РѕРґ, СЃС‡РёС‚Р°СЋС‰РёР№ const b
 * \param const x, y, z
-* \return значение const b
+* \return Р·РЅР°С‡РµРЅРёРµ const b
 **/
 double GetB(const double x, const double y, const double z) {
 	return y * cos(x * z * sin(y)) + 3;
 }
 
 /**
- * \brief Точка входа в программу.
- * \return Код ошибки (0 - успех).
+ * \brief РўРѕС‡РєР° РІС…РѕРґР° РІ РїСЂРѕРіСЂР°РјРјСѓ.
+ * \return РљРѕРґ РѕС€РёР±РєРё (0 - СѓСЃРїРµС…).
  */
 int main() {
 	const double x = 2.0;
