@@ -4,18 +4,22 @@
 using namespace std;
 
 /**
-* \brief Метод, считающий const a
-* \param const x, y, z
-* \return значение const a
+* \brief Метод, считающий const auto a
+* \param const double x - константа, имеющая тип данных с плавающей запятой двойной точности
+* \param const double y - константа, имеющая тип данных с плавающей запятой двойной точности 
+* \param const double z - константа, имеющая тип данных с плавающей запятой двойной точности 
+* \return значение const auto a
 **/
 double GetA(const double x, const double y, const double z) {
 	return cbrt((x * y * z) + abs(z * sin(y))) ;
 }
 
 /**
-* \brief Метод, считающий const b
-* \param const x, y, z
-* \return значение const b
+* \brief Метод, считающий const auto b
+* \param const double x - константа, имеющая тип данных с плавающей запятой двойной точности
+* \param const double y - константа, имеющая тип данных с плавающей запятой двойной точности 
+* \param const double z - константа, имеющая тип данных с плавающей запятой двойной точности 
+* \return значение const auto b
 **/
 double GetB(const double x, const double y, const double z) {
 	return y * cos(x * z * sin(y)) + 3;
