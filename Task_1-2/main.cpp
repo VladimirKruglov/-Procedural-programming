@@ -16,36 +16,36 @@ double Getm(double byte){
 * \param byte - число байт
 * \return количество гигабайт в числе байт
 **/
-double Getg(double x){
+double Getg(double byte){
 	const int b = pow(10, 9);
-	return x / b;
+	return byte / b;
 }
 
 /**
-* \brief Метод, позволяющий ввести и проверяющий правильность ввода
-* \return правильное значение ввода
+* \brief Метод, позволяющий ввести количество байт и проверяющий правильность ввода
+* \return правильное значение ввода количества байт
 **/
 double input() {
-	double x;
+	double byte;
 	cout << "Please enter number of bytes: ";
-	cin >> x;
+	cin >> byte;
 	while (!cin || cin.get() != '\n') {
 		cout << "Wrong input! Please enter your number again: ";
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> x;
+		cin >> byte;
 	}
-	return x;
+	return byte;
 }
 	
 /**
  * \brief Точка входа в программу.
- * \return  Код ошибки (0 - успех).
+ * \return Код ошибки (0 - успех).
 **/
 int main(){
-	double num = input();
-	double mega = Getm(num), giga = Getg(num);
-	cout << num << " byte = " << mega << " megabyte\n" 
-		 << num << " byte = " << giga << " gigabyte";
+	double byte = input();
+	double mega = Getm(byte), giga = Getg(byte);
+	cout << byte << " byte = " << mega << " megabyte\n" 
+		 << byte << " byte = " << giga << " gigabyte";
 	return 0;
 }
