@@ -15,14 +15,14 @@ double GetR(double R1, double R2, double R3);
 * \return Код ошибки (0-успех)
 * */
 int main() {
-	double R1;
 	cout << "Please enter resistance values R1: ";
+	double R1;
 	cin >> R1;
-	double R2;
 	cout << "Please enter resistance values R2: ";
+	double R2;
 	cin >> R2;
-	double R3;
 	cout << "Please enter resistance values R3: ";
+	double R3;
 	cin >> R3;
 	double R;
 	
