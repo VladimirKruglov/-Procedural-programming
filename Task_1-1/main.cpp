@@ -4,26 +4,22 @@
 using namespace std;
 
 /**
-* \brief Метод, считающий const auto a
-* \param const double x - константа, имеющая тип данных с плавающей запятой двойной точности
-* \param const double y - константа, имеющая тип данных с плавающей запятой двойной точности 
-* \param const double z - константа, имеющая тип данных с плавающей запятой двойной точности 
-* \return значение const auto a
+* \brief Математическая функция, рассчитывающая значение b
+* \param const double x - константа, имеющая тип данных с плавающей точкой двойной точности
+* \param const double y - константа, имеющая тип данных с плавающей точкой двойной точности 
+* \param const double z - константа, имеющая тип данных с плавающей точкой двойной точности 
+* \return значение a
 **/
-double GetA(const double x, const double y, const double z) {
-	return cbrt((x * y * z) + abs(z * sin(y))) ;
-}
+double GetA(const double x, const double y, const double z);
 
 /**
-* \brief Метод, считающий const auto b
-* \param const double x - константа, имеющая тип данных с плавающей запятой двойной точности
-* \param const double y - константа, имеющая тип данных с плавающей запятой двойной точности 
-* \param const double z - константа, имеющая тип данных с плавающей запятой двойной точности 
-* \return значение const auto b
+* \brief Математическая функция, рассчитывающая значение b
+* \param const double x - константа, имеющая тип данных с плавающей точкой двойной точности
+* \param const double y - константа, имеющая тип данных с плавающей точкой двойной точности 
+* \param const double z - константа, имеющая тип данных с плавающей точкой двойной точности 
+* \return значение b
 **/
-double GetB(const double x, const double y, const double z) {
-	return y * cos(x * z * sin(y)) + 3;
-}
+double GetB(const double x, const double y, const double z);
 
 /**
  * \brief Точка входа в программу.
@@ -41,4 +37,12 @@ int main() {
 		<< "\na = " << a 
 		<< "\nb = " << b;
 	return 0;
+}
+
+double GetA(const double x, const double y, const double z) {
+	return cbrt((x * y * z) + abs(z * sin(y)));
+}
+
+double GetB(const double x, const double y, const double z) {
+	return y * cos(x * z * sin(y)) + 3;
 }
