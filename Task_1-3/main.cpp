@@ -2,13 +2,13 @@
 using namespace std;
 
 /**
-* \brief Функция, высчитывающая общее сопротивление
+* \brief Функция, рассчитывающая общее сопротивление
 * \param R1 - сопротивление 1 резистора
 * \param R2 - сопротивление 2 резистора  
 * \param R3 - сопротивление 3 резистора
 * \return значение общего сопротивления
 **/
-double GetInResistance(double R1, double R2, double R3);
+double GetTotalResistance(const double R1,const double R2,const double R3);
 
 /**
 * \brief Точка входа в программу
@@ -24,7 +24,7 @@ int main() {
 	cout << "Please enter resistance values R3: ";
 	double R3;
 	cin >> R3;
-	double R = GetInResistance(R1, R2, R3);
+	const auto R = GetTotalResistance(R1, R2, R3);
     cout <<"R1 = " << R1 <<
 		 "\nR2 = " << R2 <<
 		 "\nR3 = " << R3 <<
@@ -33,6 +33,6 @@ int main() {
 	return 0;
 }
 
-double GetInResistance(double R1, double R2, double R3) {
+double GetTotalResistance(const double R1,const double R2,const double R3) {
 	return pow((1 / R1 + 1 / R2 + 1 / R3), -1);
 }
