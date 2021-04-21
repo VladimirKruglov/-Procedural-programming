@@ -6,14 +6,14 @@ using namespace std;
 * \param byte - число байт
 * \return количество мегабайт в числе байт
 **/
-double GetInMegabytes(double byte);
+const double GetInMegabytes(double byte);
 
 /**
 * \brief Метод, переводящий байты в гигабайты
 * \param byte - число байт
 * \return количество гигабайт в числе байт
 **/
-double GetInGigabytes(double byte);
+const double GetInGigabytes(double byte);
 
 /**
  * \brief Точка входа в программу.
@@ -23,20 +23,21 @@ int main(){
 	double byte;
 	cout << "Please enter number of bytes: ";
 	cin >> byte;
-	double mega = GetInMegabytes(byte), giga = GetInGigabytes(byte);
-	cout << byte << " byte = " << mega << " megabyte\n" 
-		 << byte << " byte = " << giga << " gigabyte";
+	const auto megabytes = GetInMegabytes(byte);
+	const auto gigabytes = GetInGigabytes(byte);
+	cout << byte << " byte = " << megabytes << " megabyte\n" 
+		 << byte << " byte = " << gigabytes << " gigabyte";
 	return 0;
 }
 
-double GetInMegabytes(double byte) {
+const double GetInMegabytes(double byte) {
 	const int BASED_ON_POWERS = 10, MEGA = 6;
-	const int a = pow(BASED_ON_POWERS, MEGA);
-	return byte / a;
+	const auto factor = pow(BASED_ON_POWERS, MEGA);
+	return byte / factor;
 }
 
-double GetInGigabytes(double byte) {
+const double GetInGigabytes(double byte) {
 	const int BASED_ON_POWERS = 10, GIGA = 9;
-	const int b = pow(BASED_ON_POWERS, GIGA);
-	return byte / b;
+	const auto factor = pow(BASED_ON_POWERS, GIGA);
+	return byte / factor;
 }
