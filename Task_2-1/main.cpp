@@ -3,24 +3,27 @@
 using namespace std;
 
 /**
-* \brief Функция, высчитывающая объем параллелепипеда
+* \brief Функция, расчитывающая объем параллелепипеда
 * \param lentgh - длина стороны параллелепипеда
 * \param width - ширина стороны параллелепипеда
 * \param height - высота стороны параллелепипеда
 * \return значение объема
 **/
-double calcVolume(double lentgh, double width, double height);
+double GetVolume(double lentgh, double width, double height);
 
 /**
-* \brief Функция, высчитывающая площадь поверхности параллелепипеда
+* \brief Функция, расчитывающая площадь поверхности параллелепипеда
 * \param lentgh - длина стороны параллелепипеда
 * \param width - ширина стороны параллелепипеда
 * \param height - высота стороны параллелепипеда
 * \return значение площади поверхности
 **/
-double calcSquare(double lentgh, double width, double height);
+double GetSquare(double lentgh, double width, double height);
 
-
+enum Choice {
+	VOLUME,
+	SQARE
+};
 /**
 * \brief Точка входа в программу
 * \return Код ошибки (0-успех)
@@ -28,9 +31,9 @@ double calcSquare(double lentgh, double width, double height);
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	
+
 	cout << "Дан параллепипед"
-		 << "\nВведите значение длины: ";
+		<< "\nВведите значение длины: ";
 	double lentgh;
 	cin >> lentgh;
 	cout << "Введите значение ширины: ";
@@ -39,25 +42,19 @@ int main() {
 	cout << "Введите значение высоты: ";
 	double height;
 	cin >> height;
-	cout << "Введите 1 - для расчета объема параллепипеда\n"
-		<< "        2 - для расчета площади поверхности\n";
-	double volume = calcVolume(lentgh,width,height);
-	double square = calcSquare(lentgh,width,height);
+	cout << "Введите 0 - для расчета объема параллепипеда\n"
+		<< "        1 - для расчета площади поверхности\n";
+	double volume = GetVolume(lentgh, width, height);
+	double square = GetSquare(lentgh, width, height);
 	int choice;
 	cin >> choice;
 	switch (choice)
 	{
-	case 1:
-		cout<< "Длина = " << lentgh
-			<< "\nШирина = " << width
-			<< "\nВысота = " << height
-			<< "\nОбъем = " << volume;
+	case Choice::VOLUME:
+		cout << "Объем = " << volume;
 		break;
-	case 2:
-		cout<< "Длина = " << lentgh
-			<< "\nШирина = " << width
-			<< "\nВысота = " << height
-			<< "\nПлощадь поверхности = " << square;
+	case Choice::SQARE:
+		cout << "Площадь поверхности = " << square;
 		break;
 	default:
 		cout << "По-русски же написал выбрать 1 или 2";
@@ -66,10 +63,10 @@ int main() {
 	return 0;
 }
 
-double calcVolume(double lentgh, double width, double height) {
+double GetVolume(double lentgh, double width, double height) {
 	return lentgh * width * height;
 }
 
-double calcSquare(double lentgh, double width, double height) {
+double GetSquare(double lentgh, double width, double height) {
 	return 2 * (lentgh * width + lentgh * height + width * height);
 }
