@@ -43,17 +43,17 @@ int main() {
 	double height;
 	cin >> height;
 	cout << "Введите 0 - для расчета объема параллепипеда\n"
-		<< "        1 - для расчета площади поверхности\n";
+		<< "          1 - для расчета площади поверхности\n";
 	double volume = GetVolume(lentgh, width, height);
 	double square = GetSquare(lentgh, width, height);
-	int choice;
-	cin >> choice;
-	switch (choice)
+	int YourChoice;
+	cin >> YourChoice;
+	switch (YourChoice)
 	{
-	case Choice::VOLUME:
+	case VOLUME:
 		cout << "Объем = " << volume;
 		break;
-	case Choice::SQARE:
+	case SQARE:
 		cout << "Площадь поверхности = " << square;
 		break;
 	default:
