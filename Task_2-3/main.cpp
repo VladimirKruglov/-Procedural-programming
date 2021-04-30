@@ -1,63 +1,66 @@
 #include <iostream>
-#include <Windows.h>
 using namespace std;
 
-class Time {
-public:
-	int hour;
-	int minutes;
-};
-
 /**
-* \brief Метод, выводящий время
-* \param time - время
+* \brief Метод, отображающий введеное время
+* \param hour - часы
+* \param minutes - минуты
 **/
-void Print(Time time);
+void DisplayTime(int hour, int minutes);
 
 /**
 * \brief Метод, определяющий время суток
-* \param time - время 
+* \param hour - часы
 **/
-void TimesDay(Time time);
+void TimesDay(int hour);
 
 /**
 * \brief Точка входа в программу
 * \return Код ошибки (0-успех)
 **/
 int main() {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	Time time;
-	cout << "Введите значение часа: ";
-	cin >> time.hour;
-	cout << "Введите значение минут: ";
-	cin >> time.minutes;
-	Print(time);
-	TimesDay(time);
+	cout << "Enter the hour: ";
+	int hour;
+	cin >> hour;
+	cout << "Enter the minutes: ";
+	int minutes;
+	cin >> minutes;
+	DisplayTime(hour, minutes);
+	TimesDay(hour);
 	return 0;
 }
 
-void Print(Time time) {
-	if (time.hour < 10 && time.minutes < 10)
-		cout << "Time 0" << time.hour << ":0" << time.minutes << "\n";
-	if (time.hour < 10 && time.minutes > 10)
-		cout << "Time 0" << time.hour << ":" << time.minutes << "\n";
-	if (time.hour > 10 && time.minutes < 10)
-		cout << "Time " << time.hour << ":0" << time.minutes << "\n";
-	if (time.hour > 10 && time.minutes > 10)
-		cout << "Time " << time.hour << ":" << time.minutes << "\n";
+void DisplayTime (int hour, int minutes) {
+	const int SmallestTwodigitNumber = 10;
+	
+	if (hour < SmallestTwodigitNumber && minutes < SmallestTwodigitNumber)
+		cout << "Time 0" << hour << ":0" << minutes << "\n";
+	
+	if (hour < SmallestTwodigitNumber && minutes > SmallestTwodigitNumber)
+		cout << "Time 0" << hour << ":" << minutes << "\n";
+	
+	if (hour > SmallestTwodigitNumber && minutes < SmallestTwodigitNumber)
+		cout << "Time " << hour << ":0" << minutes << "\n";
+	
+	if (hour > SmallestTwodigitNumber && minutes > SmallestTwodigitNumber)
+		cout << "Time " << hour << ":" << minutes << "\n";
 }
 
-void TimesDay(Time time) {
-	if (time.hour >= 5 && time.hour <= 11)
+void TimesDay(int hour) {
+	const int LowLimitMorning = 5;
+	const int UpLimitMorning = 11;
+	const int UpLimitDay = 16;
+	const int UpLimitEvening = 23;
+	const int LowLimitNight = 0;
+	if (hour >= LowLimitMorning && hour <= UpLimitMorning)
 		cout << "Good morning!";
 
-	if (time.hour > 11 && time.hour <= 16)
+	if (hour > UpLimitMorning && hour <= UpLimitDay)
 		cout << "Good day!";
 
-	if (time.hour > 16 && time.hour <= 23)
+	if (hour > UpLimitDay && hour <= UpLimitEvening)
 		cout << "Good evening!";
 
-	if (time.hour >= 0 && time.hour < 5)
+	if (hour >= LowLimitNight && hour < LowLimitMorning)
 		cout << "Good night!";
 }
