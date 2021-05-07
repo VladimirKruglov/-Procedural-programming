@@ -2,13 +2,6 @@
 using namespace std;
 
 /**
-* \brief Метод, отображающий введеное время
-* \param hour - часы
-* \param minutes - минуты
-**/
-void DisplayTime(int hour, int minutes);
-
-/**
 * \brief Метод, определяющий время суток
 * \param hour - часы
 **/
@@ -25,25 +18,8 @@ int main() {
 	cout << "Enter the minutes: ";
 	int minutes;
 	cin >> minutes;
-	DisplayTime(hour, minutes);
 	TimesDay(hour);
 	return 0;
-}
-
-void DisplayTime (int hour, int minutes) {
-	const int SmallestTwodigitNumber = 10;
-	
-	if (hour < SmallestTwodigitNumber && minutes < SmallestTwodigitNumber)
-		cout << "Time 0" << hour << ":0" << minutes << "\n";
-	
-	if (hour < SmallestTwodigitNumber && minutes > SmallestTwodigitNumber)
-		cout << "Time 0" << hour << ":" << minutes << "\n";
-	
-	if (hour > SmallestTwodigitNumber && minutes < SmallestTwodigitNumber)
-		cout << "Time " << hour << ":0" << minutes << "\n";
-	
-	if (hour > SmallestTwodigitNumber && minutes > SmallestTwodigitNumber)
-		cout << "Time " << hour << ":" << minutes << "\n";
 }
 
 void TimesDay(int hour) {
