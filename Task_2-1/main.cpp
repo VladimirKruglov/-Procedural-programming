@@ -1,66 +1,103 @@
 #include <iostream>
-#include <Windows.h>
+#include <string>
 using namespace std;
 
 /**
-* \brief Р¤СѓРЅРєС†РёСЏ, СЂР°СЃС‡РёС‚С‹РІР°СЋС‰Р°СЏ РѕР±СЉРµРј РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \param lentgh - РґР»РёРЅР° СЃС‚РѕСЂРѕРЅС‹ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \param width - С€РёСЂРёРЅР° СЃС‚РѕСЂРѕРЅС‹ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \param height - РІС‹СЃРѕС‚Р° СЃС‚РѕСЂРѕРЅС‹ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \return Р·РЅР°С‡РµРЅРёРµ РѕР±СЉРµРјР°
+* \brief Функция, расчитывающая объем параллелепипеда
+* \param lentgh - длина стороны параллелепипеда
+* \param width - ширина стороны параллелепипеда
+* \param height - высота стороны параллелепипеда
+* \return значение объема
 **/
 double GetVolume(double lentgh, double width, double height);
 
 /**
-* \brief Р¤СѓРЅРєС†РёСЏ, СЂР°СЃС‡РёС‚С‹РІР°СЋС‰Р°СЏ РїР»РѕС‰Р°РґСЊ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \param lentgh - РґР»РёРЅР° СЃС‚РѕСЂРѕРЅС‹ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \param width - С€РёСЂРёРЅР° СЃС‚РѕСЂРѕРЅС‹ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \param height - РІС‹СЃРѕС‚Р° СЃС‚РѕСЂРѕРЅС‹ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°
-* \return Р·РЅР°С‡РµРЅРёРµ РїР»РѕС‰Р°РґРё РїРѕРІРµСЂС…РЅРѕСЃС‚Рё
+* \brief Функция, расчитывающая площадь поверхности параллелепипеда
+* \param lentgh - длина стороны параллелепипеда
+* \param width - ширина стороны параллелепипеда
+* \param height - высота стороны параллелепипеда/**
+* \return значение площади поверхности
 **/
 double GetSquare(double lentgh, double width, double height);
 
-enum Choice {
-	VOLUME,
-	SQARE
-};
 /**
-* \brief РўРѕС‡РєР° РІС…РѕРґР° РІ РїСЂРѕРіСЂР°РјРјСѓ
-* \return РљРѕРґ РѕС€РёР±РєРё (0-СѓСЃРїРµС…)
-**/
-int main() {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+* \brief Перечислимый тип чисел, с помощью которого можно посчитать объем или площадь
+*/
+enum class Choice
+{
+	/**
+	* \brief Выбор пользователя - объем
+	*/
+	VOLUME = 1,
 
-	cout << "Р”Р°РЅ РїР°СЂР°Р»Р»РµРїРёРїРµРґ"
-		<< "\nР’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РґР»РёРЅС‹: ";
-	double lentgh;
-	cin >> lentgh;
-	cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ С€РёСЂРёРЅС‹: ";
-	double width;
-	cin >> width;
-	cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РІС‹СЃРѕС‚С‹: ";
-	double height;
-	cin >> height;
-	cout << "Р’РІРµРґРёС‚Рµ 0 - РґР»СЏ СЂР°СЃС‡РµС‚Р° РѕР±СЉРµРјР° РїР°СЂР°Р»Р»РµРїРёРїРµРґР°\n"
-		<< "          1 - РґР»СЏ СЂР°СЃС‡РµС‚Р° РїР»РѕС‰Р°РґРё РїРѕРІРµСЂС…РЅРѕСЃС‚Рё\n";
-	double volume = GetVolume(lentgh, width, height);
-	double square = GetSquare(lentgh, width, height);
-	int YourChoice;
-	cin >> YourChoice;
-	switch (YourChoice)
+	/**
+	* \brief Выбор пользователя - площадь поверхности
+	*/
+	SQARE = 2 
+};
+
+/**
+* \brief
+* \param message
+* \return
+*/
+Choice ReadUserChoice(const string & message = "");
+
+/**
+* \brief Точка входа в программу.
+* \return Код ошибки, если 0 - успешное выполнение.
+*/
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	const auto message = "Дан параллепипед\nВыберите, что нужно посчитать:\n"
+		+ to_string(static_cast<int>(Choice::VOLUME)) + " - Объем параллелепипеда\n"
+		+ to_string(static_cast<int>(Choice::SQARE)) + " - Площадь поверхности параллелепипеда\n";
+	
+	const auto number = ReadUserChoice(message);
+
+	switch (number)
 	{
-	case VOLUME:
-		cout << "РћР±СЉРµРј = " << volume;
-		break;
-	case SQARE:
-		cout << "РџР»РѕС‰Р°РґСЊ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё = " << square;
-		break;
-	default:
-		cout << "РџРѕ-СЂСѓСЃСЃРєРё Р¶Рµ РЅР°РїРёСЃР°Р» РІС‹Р±СЂР°С‚СЊ 1 РёР»Рё 2";
+	case Choice::VOLUME:
+	{
+		cout << "Введите значение длины: ";
+		double lentgh;
+		cin >> lentgh;
+		cout << "Введите значение ширины: ";
+		double width;
+		cin >> width;
+		cout << "Введите значение высоты: ";
+		double height;
+		cin >> height;
+		cout << "Объем = " << GetVolume(lentgh, width, height);
 		break;
 	}
+	case Choice::SQARE:
+	{
+		cout << "Введите значение длины: ";
+		double lentgh;
+		cin >> lentgh;
+		cout << "Введите значение ширины: ";
+		double width;
+		cin >> width;
+		cout << "Введите значение высоты: ";
+		double height;
+		cin >> height;
+		cout << "Площадь поверхности = " << GetSquare(lentgh, width, height);
+		break;
+	}
+	default:
+		cout << "Ошибка!";
+	}
 	return 0;
+}
+
+Choice ReadUserChoice(const string& message)
+{
+	cout << message;
+	int userInput;
+	cin >> userInput;
+	return static_cast<Choice>(userInput);
 }
 
 double GetVolume(double lentgh, double width, double height) {
