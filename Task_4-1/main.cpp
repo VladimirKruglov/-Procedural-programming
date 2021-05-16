@@ -108,13 +108,13 @@ int main() {
 }
 
 void randomDigits(int* array, const int  size, const int LOW_BOUND, const int UP_BOUND) {
-	for (int i = 0; i < size; i++) {
+	for (size_t i = 0; i < size; i++) {
 		array[i] = rand() % (2 * UP_BOUND + 1) + LOW_BOUND;
 	}
 }
 
 void userInput(int* array, const int  size) {
-	for (int i = 0; i < size; i++) {
+	for (size_t i = 0; i < size; i++) {
 		cout << "arr[" << i << "] = ";
 		cin >> array[i];
 	}
@@ -122,7 +122,7 @@ void userInput(int* array, const int  size) {
 
 void Print(int* array, const int size) {
 	cout << "array[" << size << "]" << "= {";
-	for (int i = 0; i < size - 1; i++) {
+	for (size_t i = 0; i < size - 1; i++) {
 	  cout << array[i] << ";" << setw(3);
 	}
 	cout << array[size-1] << "}\n\n";
@@ -130,7 +130,7 @@ void Print(int* array, const int size) {
 
 int GetSum(int* array, const int size) {
 	int sum = 0;
-	for (int i = 0; i < size; i++) {
+	for (size_t i = 0; i < size; i++) {
 		if (abs(array[i]) < 10) {
 			sum += array[i];
 		}
@@ -139,7 +139,7 @@ int GetSum(int* array, const int size) {
 }
 
 void numberGreaterNext(int* array, const int size) {
-	for (int i = 0; i < size - 1; i++) {
+	for (size_t i = 0; i < size - 1; i++) {
 		if (array[i] > array[i + 1]) {
 			cout << "[" << i << "] ";
 		}
@@ -149,7 +149,7 @@ void numberGreaterNext(int* array, const int size) {
 
 void multiplyАllmultiplesThrebyThirdElement(int* array, const int size) {
 	int newElement;
-	for (int i = 0; i < size; i++) {
+	for (size_t i = 0; i < size; i++) {
 		if (array[i] % 3 == 0) {
 			newElement = array[i] * array[2];
 			cout << "array[" << i << "] = " << array[i] << " | " << array[i] << " * " << array[2] << " = " << newElement << "\n";
