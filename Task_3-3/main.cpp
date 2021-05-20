@@ -21,7 +21,7 @@ double recurrent(const double x, const int index);
 
 /**
  * \brief Вычисление суммы ряда от x с заданной точностью
- * \param x Показатель степени.
+ * \param x Показатель степени
  * \param eps Погрешность вычислений
  * \return sum Значение суммы ряда
  */
@@ -48,9 +48,9 @@ int main()
     while (x <= UP_BOUND + EPS)
     {
         const auto function = GetEPower2X(x);
-        const auto sum = GetSum(x, EPS);
+        const auto series = GetSum(x, EPS);
 
-        Print(x, function, sum);
+        Print(x, function, series);
 
         x += STEP;
     }
@@ -65,28 +65,32 @@ double GetEPower2X(const double x)
 
 double recurrent(const double x, const int index)
 {
-    return 2 * index * x;
+    return 2 * x / (index + 1);
 }
 
 double GetSum(const double x, const double eps)
 {
-    double previous = x, sum = previous, current;
+    auto previous = 0.0;
+    auto current = 1.0;
+    auto sum = current;
+    unsigned int index = 0;
 
-    for (size_t n = 0; abs(previous) > eps; n++)
+    do
     {
-        current = recurrent(x, n) * previous;
         previous = current;
-        sum += previous;
-    }
+        current = previous * recurrent(x, index);
+        sum += current;
+        index++;
+    } while (abs(previous - current) >= eps);
 
     return sum;
 }
 
 
 
-void Print(const double argument, const double function, const double sum)
+void Print(const double argument, const double function, const double series)
 {
     cout<< "X" << setw(10) << argument << " | "
         << "Значение функции" << setw(15) << function << " | "
-        << "Значение суммы ряда" << setw(15) << sum << "\n";
+        << "Значение суммы ряда" << setw(15) << series << "\n";
 }
