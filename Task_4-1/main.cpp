@@ -11,7 +11,7 @@ using namespace std;
 * \param LOW_BOUND Минимально возможное число
 * \param UP_BOUND Максимально возможное число
 **/
-void randomDigits(int* array, const int  size, const int LOW_BOUND, const int UP_BOUND);
+void randomDigits(int* array, const size_t  size, const int LOW_BOUND, const int UP_BOUND);
 
 /**
 * \brief Ввод массива с клавиатуры
@@ -107,7 +107,7 @@ int main() {
 	return 0;
 }
 
-void randomDigits(int* array, const int  size, const int LOW_BOUND, const int UP_BOUND) {
+void randomDigits(int* array, const size_t  size, const int LOW_BOUND, const int UP_BOUND) {
 	for (size_t i = 0; i < size; i++) {
 		array[i] = rand() % (2 * UP_BOUND + 1) + LOW_BOUND;
 	}
