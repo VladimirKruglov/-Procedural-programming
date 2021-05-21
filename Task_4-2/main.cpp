@@ -4,7 +4,7 @@
 using namespace std;
 
 /**
-* \brief Р’С‹Р±РѕСЂ Р·Р°РїРѕР»РЅРµРёСЏ РјР°СЃСЃРёРІР°
+* \brief Выбор заполнеия массива
 **/
 enum class Filling
 {
@@ -14,56 +14,57 @@ enum class Filling
 
 
 /**
-* \brief Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
-* \param LOW_BOUND РњРёРЅРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅРѕРµ С‡РёСЃР»Рѕ
-* \param UP_BOUND РњР°РєСЃРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅРѕРµ С‡РёСЃР»Рѕ
+* \brief Заполнение массива случайными числами
+* \param array Массив
+* \param size Размер массива
+* \param LOW_BOUND Минимально возможное число
+* \param UP_BOUND Максимально возможное число
 **/
-void randomDigits(int* array, const int  size, const int LOW_BOUND, const int UP_BOUND);
+void randomDigits(int* array, const size_t  size, const int LOW_BOUND, const int UP_BOUND);
 
 /**
-* \brief Р’РІРѕРґ РјР°СЃСЃРёРІР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \brief Ввод массива с клавиатуры
+* \param array Массив
+* \param size Размер массива
 **/
-void userInput(int* array, const int  size);
+void userInput(int* array, const size_t size);
 
 /**
-* \brief Р’С‹РІРѕРґ РјР°СЃСЃРёРІР°
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \brief Вывод массива
+* \param array Массив
+* \param size Размер массива
 **/
-void Print(int* array, const int size);
+void Print(int* array, const size_t size);
 
 /**
-* \brief РџРѕРёСЃРє РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
-* \return min РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°
+* \brief Поиск минимального элемента
+* \param array Массив
+* \param size Размер массива
+* \return min Минимальный элемент массива
 **/
-int GetminValue(int* array, const int size);
+int GetminValue(int* array, const size_t size);
 
 /**
-* \brief Р’С‹РІРѕРґ РјР°СЃСЃРёРІР° СЃ Р·Р°РјРµРЅРѕР№ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅСѓР»РµРј
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \brief Вывод массива с заменой минимального элемента нулем
+* \param array Массив
+* \param size Размер массива
 **/
-void PrintReplacement(int* array, const int size, const int min);
+void PrintReplacement(int* array, const size_t size, const int min);
 
 /**
-* \brief РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ С„РѕСЂРјРёСЂСѓС‚ РјР°СЃСЃРёРІ Рђ РёР· СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° D
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \brief Метод, который формирут массив А из элементов массива D
+* \param newarray Новый массив
+* \param array Старый массив
+* \param size Размер массива
 **/
-void newArray(int size, int* newarray, int* array);
+void newArray(const size_t size, int* newarray, int* array);
 
 /**
-* \brief РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°, РїРµСЂРІР°СЏ Рё РїРѕСЃР»РµРґРЅСЏСЏ С†РёС„СЂР° РєРѕС‚РѕСЂС‹С… С‡РµС‚РЅР°СЏ
-* \param arr РњР°СЃСЃРёРІ
-* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \brief Удаление элементов массива, первая и последняя цифра которых четная
+* \param array Массив
+* \param size Размер массива
 **/
-void RemoveEvenNumbers(int* array, const int size);
+void RemoveEvenNumbers(int* array, const size_t size);
 
 int main() {
 	setlocale(LC_ALL, "ru");
@@ -71,13 +72,13 @@ int main() {
 
 	const int LOW_BOUND = -40, UP_BOUND = 40;
 
-	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: ";
+	cout << "Введите количество элементов массива: ";
 	int* array;
 	int size;
 	cin >> size;
 
 	array = new int[size];
-	cout << "1 - РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ\n2 - Р—Р°РїРѕР»РЅРёС‚СЊ РјР°СЃСЃРёРІ РІСЂСѓС‡РЅСѓСЋ\n1 РёР»Рё 2: ";
+	cout << "1 - Сгенерировать массив\n2 - Заполнить массив вручную\n1 или 2: ";
 	int choice;
 	cin >> choice;
 
@@ -93,20 +94,20 @@ int main() {
 		Print(array, size);
 		break;
 	default:
-		cout << "РћС€РёР±РєР°! РќРµ РІС‹Р±СЂР°РЅ РЅРё РѕРґРёРЅ РёР· РІР°СЂРёР°РЅС‚РѕРІ";
+		cout << "Ошибка! Не выбран ни один из вариантов";
 	}
 
-	cout << "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ РїРѕ РјРѕРґСѓР»СЋ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°: ";
+	cout << "Минимальный по модулю элемент массива: ";
 	int min = GetminValue(array, size);
 	cout << min << "\n";
-    
-	cout << "Р—Р°РјРµРЅР° РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РїРѕ РјРѕРґСѓР»СЋ СЌР»РµРјРµРЅС‚Р° РЅСѓР»РµРј:\n";
+
+	cout << "Замена минимального по модулю элемента нулем:\n";
 	PrintReplacement(array, size, min);
 
-	cout << "РЈРґР°Р»РµРЅРёРµ РёР· РјР°СЃСЃРёРІР° РІСЃРµС… С‡РµС‚РЅС‹С… С‡РёСЃРµР»:\n";
+	cout << "Удаление из массива всех четных чисел:\n";
 	RemoveEvenNumbers(array, size);
 
-	cout << "РњР°СЃСЃРёРІ Рђ СЃС„РѕСЂРјРёСЂРѕРІР°РЅРЅС‹Р№ РёР· РјР°СЃСЃРёРІР° D С‚РѕР№ Р¶Рµ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё:\n";
+	cout << "Массив А сформированный из массива D той же размерности:\n";
 	int* newarray;
 	newarray = new int[size];
 	newArray(size, newarray, array);
@@ -115,7 +116,7 @@ int main() {
 	return 0;
 }
 
-void randomDigits(int* array, const int  size, const int LOW_BOUND, const int UP_BOUND) 
+void randomDigits(int* array, const size_t  size, const int LOW_BOUND, const int UP_BOUND) 
 {
 	for (size_t i = 0; i < size; i++) 
 	{
@@ -123,7 +124,7 @@ void randomDigits(int* array, const int  size, const int LOW_BOUND, const int UP
 	}
 }
 
-void userInput(int* array, const int  size) 
+void userInput(int* array, const size_t size) 
 {
 	for (size_t i = 0; i < size; i++) 
 	{
@@ -132,7 +133,7 @@ void userInput(int* array, const int  size)
 	}
 }
 
-void Print(int* array, const int size) 
+void Print(int* array, const size_t size) 
 {
 	cout << "array[" << size << "]" << "= {";
 	for (size_t i = 0; i < size; i++) 
@@ -142,7 +143,7 @@ void Print(int* array, const int size)
 	cout << "}\n\n";
 }
 
-int GetminValue(int* array, const int size)
+int GetminValue(int* array, const size_t size)
 {
 	int min = array[0];
 	for (size_t i = 1; i < size; i++)
@@ -153,7 +154,12 @@ int GetminValue(int* array, const int size)
 	return min;
 }
 
-void PrintReplacement(int* array, const int size, const int min)
+int GetminValue(int* array, const int size)
+{
+	return 0;
+}
+
+void PrintReplacement(int* array, const size_t size, const int min)
 {
 	cout << "array[" << size << "]" << "= {";
 	for (size_t i = 0; i < size; i++)
@@ -166,7 +172,7 @@ void PrintReplacement(int* array, const int size, const int min)
 	cout <<"}\n\n";
 }
 
-void newArray(const int size, int* newarray, int* array) 
+void newArray(const size_t size, int* newarray, int* array) 
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -177,13 +183,21 @@ void newArray(const int size, int* newarray, int* array)
 	}
 }
 
-void RemoveEvenNumbers(int* array, const int size) {
+void RemoveEvenNumbers(int* array, const size_t size) {
 	int newsize = 0;
-	cout << "array[" << size << "]" << "= {";
-	for (size_t i = 0; i < size; i++) 
-		if ((array[i] % 2 != 0 && array[i] > -30 && array[i] <= -20) || (array[i] % 2 != 0 && array[i] >=20 && array[i] <=40 ) || (array[i] % 2 != 0 && array[i] <10))
-			array[newsize++] = array[i];
-		for (size_t i = 0; i < newsize; i++)
-			cout << array[i] << ";";
-	cout << "}\n\n";
+	for (size_t i = 0; i < size; i++)
+		if (array[i] % 2 == 0)
+		{
+			while (array[i] > 10)
+			{
+			 array[i] /= 10;
+			}
+			if (array[i] % 2 == 0)
+			{
+				array[newsize++] = array[i];
+			}
+			for (size_t i = 0; i < newsize; i++)
+				cout << array[i] << ";";
+			cout << "}\n\n";
+		}
 }
