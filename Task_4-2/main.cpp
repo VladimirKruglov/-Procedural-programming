@@ -97,15 +97,15 @@ int main() {
 		cout << "Ошибка! Не выбран ни один из вариантов";
 	}
 
+	cout << "Удаление из массива всех чисел, первая и последняя цифра которых четные числа:\n";
+	RemoveEvenNumbers(array, size);
+
 	cout << "Минимальный по модулю элемент массива: ";
 	int min = GetminValue(array, size);
 	cout << min << "\n";
 
 	cout << "Замена минимального по модулю элемента нулем:\n";
 	PrintReplacement(array, size, min);
-
-	cout << "Удаление из массива всех четных чисел:\n";
-	RemoveEvenNumbers(array, size);
 
 	cout << "Массив А сформированный из массива D той же размерности:\n";
 	int* newarray;
@@ -184,15 +184,12 @@ void newArray(const size_t size, int* newarray, int* array)
 }
 
 void RemoveEvenNumbers(int* array, const size_t size) {
-	int newsize = 0;
+	int x, newsize = 0;
 	for (size_t i = 0; i < size; i++)
 		if (array[i] % 2 == 0)
 		{
-			while (array[i] > 10)
-			{
-			 array[i] /= 10;
-			}
-			if (array[i] % 2 == 0)
+			x = array[i] / 10;
+			if (x % 2 != 0)
 			{
 				array[newsize++] = array[i];
 			}
