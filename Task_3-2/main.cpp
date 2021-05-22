@@ -49,13 +49,13 @@ double recurrent(const size_t k)
 
 double GetSum(const size_t n)
 {
-    double previous = 1, sum = previous, current;
-
+    auto previous = 1.0 / (2 * 2 * 3);
+    auto sum = previous;
     for (size_t k = 1; k < n; k++)
     {
-        current = recurrent(k) * previous;
-        sum += previous;
+        const auto current = recurrent(k) * previous;
         previous = current;
+        sum += current;
     }
 
     return sum;
